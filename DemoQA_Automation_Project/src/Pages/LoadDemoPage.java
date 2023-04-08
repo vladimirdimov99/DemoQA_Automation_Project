@@ -1,4 +1,4 @@
-package DemoQA_Automation_Project.Pages;
+package Pages;
 
 import org.openqa.selenium.WebDriver;
 

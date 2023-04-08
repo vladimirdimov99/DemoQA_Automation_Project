@@ -1,7 +1,7 @@
-package DemoQA_Automation_Project.Tests;
+package Tests;
 
-import DemoQA_Automation_Project.Pages.ElementsMenu;
-import DemoQA_Automation_Project.Pages.LoadDemoPage;
+import Pages.ElementsMenu;
+import Pages.LoadDemoPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
