@@ -24,9 +24,7 @@ public class TestsAlertsMenu {
 
     @BeforeTest
     public void LoadTheDemoPage() {
-        ChromeOptions option = new ChromeOptions();
-        option.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(option);
+        driver = new ChromeDriver();
         new LoadDemoPage().LoadPage(driver);
     }
 
