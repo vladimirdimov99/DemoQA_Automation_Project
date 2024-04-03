@@ -25,7 +25,7 @@ public class TestsElementsMenu extends LoadTheDriver {
     public void goToElementsMenu() {
         ElementsMenu elementsMenu = new ElementsMenu();
         elementsMenu.goToElements();
-        String title = driver.getCurrentUrl();
+        String title = getDriver().getCurrentUrl();
         Assert.assertEquals(title, "https://demoqa.com/elements");
     }
 
