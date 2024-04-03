@@ -1,34 +1,29 @@
 package Tests;
 
 import Pages.ElementsMenu;
-import Pages.LoadDemoPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import utils.LoadTheDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
-public class TestsElementsMenu {
-    WebDriver driver;
+public class TestsElementsMenu extends LoadTheDriver {
 
     @BeforeTest
     public void LoadTheDemoPage() {
-        driver = new ChromeDriver();
-        new LoadDemoPage().LoadPage(driver);
+        new LoadTheDriver().LoadTheWebsite(getDriver());
     }
 
     @Test(priority = 1)
     public void checkTitleAfterLoadingTheDemoPage() {
-        String title = driver.getCurrentUrl();
+        String title = getDriver().getCurrentUrl();
         Assert.assertEquals(title, "https://demoqa.com/");
     }
 
     @Test(priority = 2)
     public void goToElementsMenu() {
-        ElementsMenu elementsMenu = new ElementsMenu(driver);
+        ElementsMenu elementsMenu = new ElementsMenu();
         elementsMenu.goToElements();
         String title = driver.getCurrentUrl();
         Assert.assertEquals(title, "https://demoqa.com/elements");
@@ -36,9 +31,9 @@ public class TestsElementsMenu {
 
     @Test(priority = 3)
     public void goToTextBoxAndEnterCredentialsAndClickSubmitButton() {
-        ElementsMenu elementsMenu = new ElementsMenu(driver);
+        ElementsMenu elementsMenu = new ElementsMenu();
         elementsMenu.goToTextBox();
-        String title = driver.getCurrentUrl();
+        String title = getDriver().getCurrentUrl();
         Assert.assertEquals(title, "https://demoqa.com/text-box");
         elementsMenu.enterCredentials();
         elementsMenu.clickSubmitButtonAndCheckEmail();
@@ -46,6 +41,6 @@ public class TestsElementsMenu {
 
     @AfterTest
     public void closeDemoPage() {
-        driver.quit();
+        quitTheDriver();
     }
 }
